@@ -125,26 +125,27 @@ Table 1: mapk14 target results
 
 Table 2: mapk14 target results
 | Target | Split strategy   | Metric                                   | Data split           | Value (mean ± standard deviation) |
+| ------ | ---------------- | ---------------------------------------- | -------------------- | --------------------------------- |
 | ddr1   | random           | RMSE                                     | test set             | 0.530 ± 0.117                     |
 | ddr1   | random           | Spearman Correlation coefficient         | on DNA:In-library    | 0.458 ± 0.065                     |
 | ddr1   | random           | Spearman Correlation coefficient         | off DNA:In-library   | 0.181 ± 0.092                     |
-| ddr1   | random           | Kendall's tau                            | off:DNA:In-library   | 0.126 ± 0.060                     |
+| ddr1   | random           | Kendall's tau                            | off DNA:In-library   | 0.126 ± 0.060                     |
 | ddr1   | random           | Spearman Correlation coefficient         | on DNA:all           | 0.512 ± 0.049                     |
-| ddr1   | random           | Spearman Correlation coefficient         | off:DNA:all          | 0.170 ± 0.082                     |
-| ddr1   | random           | Kendall's tau                            | off:DNA:all          | 0.121 ± 0.055                     |
+| ddr1   | random           | Spearman Correlation coefficient         | off DNA:all          | 0.170 ± 0.082                     |
+| ddr1   | random           | Kendall's tau                            | off DNA:all          | 0.121 ± 0.055                     |
 | ddr1   | disynthon        | RMSE                                     | test set             | 1.722 ± 1.061                     |
 | ddr1   | disynthon        | Spearman Correlation coefficient         | on DNA:In-library    | 0.367 ± 0.214                     |
-| ddr1   | disynthon        | Spearman Correlation coefficient         | off:DNA:In-library   | 0.090 ± 0.086                     |
-| ddr1   | disynthon        | Kendall's tau                            | off:DNA:In-library   | 0.060 ± 0.055                     |
+| ddr1   | disynthon        | Spearman Correlation coefficient         | off DNA:In-library   | 0.090 ± 0.086                     |
+| ddr1   | disynthon        | Kendall's tau                            | off DNA:In-library   | 0.060 ± 0.055                     |
 | ddr1   | disynthon        | Spearman Correlation coefficient         | on DNA:all           | 0.486 ± 0.137                     |
-| ddr1   | disynthon        | Spearman Correlation coefficient         | off:DNA:all          | 0.087 ± 0.083                     |
-| ddr1   | disynthon        | Kendall's tau                            | off:DNA:all          | 0.059 ± 0.054                     |
+| ddr1   | disynthon        | Spearman Correlation coefficient         | off DNA:all          | 0.087 ± 0.083                     |
+| ddr1   | disynthon        | Kendall's tau                            | off DNA:all          | 0.059 ± 0.054                     |
 
 
 
-6) Discussion & Future Work
+# 6) Discussion & Future Work
 
-6.1) Discussion
+## 6.1) Discussion
 The primary challenge encountered during this project was the significant limitation in computational resources. This restriction constrained the amount of data that could be processed within the challenge’s time frame, making it impossible to reproduce all the benchmarks reported in the repository.
 
 As a result, model training was conducted on a random subset comprising only 0.1% of the original dataset. This reduced subset limited the exploration of the problem space, negatively affecting the model’s performance metrics and its ability to generalize effectively.
@@ -153,7 +154,7 @@ Analyzing the metrics, it is evident that the results obtained were significantl
 
 When examining performance by metric, the results reveal an interesting pattern. For the ddr1 target, the Spearman Correlation coefficient for -on DNA data was higher than its -off DNA counterpart, whereas for the mapk14 target, the opposite was observed. This seems to indicate that this approach's ability to learn -on and -off DNA approaches depends on the target. Additionally, this could also be caused by the subsampled data's distribution rather than the model's ability to learn different features. For these favourable instances, this model has successfully achieved values comparable to the values in the KenDAL paper, meaning that further computational power could aid these results. 
 
-6.2) Future work
+## 6.2) Future work
 The lack of computational power impose several design constraints (from the model selection to the training data), meaning that investment can widen the model's possibilities.
 
 As for model architecture, different kinds of neural networks should be explored. For instance, [Graph Neural Networks are popular approaches to this problem](https://paperswithcode.com/sota/protein-ligand-affinity-prediction-on-pdbbind). Additionally, there has been work done to utilise [transformer models as well](https://paperswithcode.com/paper/plapt-protein-ligand-binding-affinity).
